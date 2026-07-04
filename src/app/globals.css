@@ -1,0 +1,386 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-aura: var(--aura);
+  --color-aura-soft: var(--aura-soft);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.99 0.002 160);
+  --foreground: oklch(0.18 0.01 170);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 170);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 170);
+  /* Emerald primary */
+  --primary: oklch(0.55 0.13 162);
+  --primary-foreground: oklch(0.99 0.002 160);
+  --secondary: oklch(0.96 0.008 160);
+  --secondary-foreground: oklch(0.25 0.02 165);
+  --muted: oklch(0.965 0.005 160);
+  --muted-foreground: oklch(0.5 0.012 165);
+  --accent: oklch(0.94 0.03 165);
+  --accent-foreground: oklch(0.3 0.05 165);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0.008 160);
+  --input: oklch(0.92 0.008 160);
+  --ring: oklch(0.55 0.13 162);
+  /* AURA signature — emerald → teal → gold glow */
+  --aura: oklch(0.6 0.14 165);
+  --aura-soft: oklch(0.85 0.06 160);
+  --chart-1: oklch(0.6 0.14 165);
+  --chart-2: oklch(0.62 0.11 200);
+  --chart-3: oklch(0.75 0.15 80);
+  --chart-4: oklch(0.55 0.13 145);
+  --chart-5: oklch(0.65 0.18 40);
+  --sidebar: oklch(0.985 0.003 160);
+  --sidebar-foreground: oklch(0.18 0.01 170);
+  --sidebar-primary: oklch(0.55 0.13 162);
+  --sidebar-primary-foreground: oklch(0.99 0.002 160);
+  --sidebar-accent: oklch(0.94 0.03 165);
+  --sidebar-accent-foreground: oklch(0.3 0.05 165);
+  --sidebar-border: oklch(0.91 0.008 160);
+  --sidebar-ring: oklch(0.55 0.13 162);
+}
+
+.dark {
+  --background: oklch(0.16 0.012 175);
+  --foreground: oklch(0.97 0.004 160);
+  --card: oklch(0.205 0.014 175);
+  --card-foreground: oklch(0.97 0.004 160);
+  --popover: oklch(0.205 0.014 175);
+  --popover-foreground: oklch(0.97 0.004 160);
+  /* Emerald primary (slightly brighter for dark) */
+  --primary: oklch(0.68 0.15 162);
+  --primary-foreground: oklch(0.16 0.02 170);
+  --secondary: oklch(0.26 0.016 175);
+  --secondary-foreground: oklch(0.97 0.004 160);
+  --muted: oklch(0.25 0.014 175);
+  --muted-foreground: oklch(0.72 0.012 165);
+  --accent: oklch(0.3 0.04 168);
+  --accent-foreground: oklch(0.95 0.02 165);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.68 0.15 162);
+  --aura: oklch(0.72 0.16 162);
+  --aura-soft: oklch(0.4 0.07 165);
+  --chart-1: oklch(0.68 0.15 162);
+  --chart-2: oklch(0.7 0.12 200);
+  --chart-3: oklch(0.78 0.15 80);
+  --chart-4: oklch(0.6 0.13 145);
+  --chart-5: oklch(0.7 0.18 40);
+  --sidebar: oklch(0.205 0.014 175);
+  --sidebar-foreground: oklch(0.97 0.004 160);
+  --sidebar-primary: oklch(0.68 0.15 162);
+  --sidebar-primary-foreground: oklch(0.16 0.02 170);
+  --sidebar-accent: oklch(0.3 0.04 168);
+  --sidebar-accent-foreground: oklch(0.95 0.02 165);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.68 0.15 162);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+}
+
+/* ---------- AURA custom utilities ---------- */
+
+@layer utilities {
+  .aura-gradient-text {
+    background: linear-gradient(
+      120deg,
+      oklch(0.72 0.16 162) 0%,
+      oklch(0.68 0.14 185) 45%,
+      oklch(0.8 0.14 70) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .aura-glow {
+    box-shadow:
+      0 0 0 1px oklch(0.72 0.16 162 / 0.18),
+      0 8px 30px -8px oklch(0.72 0.16 162 / 0.35);
+  }
+
+  .aura-grid-bg {
+    background-image:
+      radial-gradient(
+        circle at 50% 0%,
+        oklch(0.72 0.16 162 / 0.12),
+        transparent 55%
+      ),
+      linear-gradient(to right, oklch(0.72 0.16 162 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.72 0.16 162 / 0.05) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      32px 32px,
+      32px 32px;
+  }
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes aura-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes aura-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aura-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes aura-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes aura-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-aura-pulse {
+  animation: aura-pulse 2.6s ease-in-out infinite;
+}
+.animate-aura-rotate {
+  animation: aura-rotate 14s linear infinite;
+}
+.animate-aura-blink {
+  animation: aura-blink 1s step-end infinite;
+}
+.animate-aura-fade-up {
+  animation: aura-fade-up 0.4s ease-out both;
+}
+
+/* ---------- Custom scrollbar ---------- */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.72 0.16 162 / 0.3) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: oklch(0.72 0.16 162 / 0.28);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: oklch(0.72 0.16 162 / 0.5);
+  background-clip: content-box;
+}
+
+/* ---------- Markdown prose (AURA messages) ---------- */
+
+.aura-prose {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.aura-prose > *:first-child {
+  margin-top: 0;
+}
+.aura-prose > *:last-child {
+  margin-bottom: 0;
+}
+
+.aura-prose p {
+  margin: 0.7em 0;
+}
+
+.aura-prose h1,
+.aura-prose h2,
+.aura-prose h3,
+.aura-prose h4 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.3em 0 0.6em;
+  letter-spacing: -0.01em;
+}
+
+.aura-prose h1 {
+  font-size: 1.5em;
+}
+.aura-prose h2 {
+  font-size: 1.3em;
+}
+.aura-prose h3 {
+  font-size: 1.12em;
+}
+.aura-prose h4 {
+  font-size: 1em;
+}
+
+.aura-prose ul,
+.aura-prose ol {
+  margin: 0.7em 0;
+  padding-left: 1.5em;
+}
+
+.aura-prose ul {
+  list-style: disc;
+}
+.aura-prose ol {
+  list-style: decimal;
+}
+
+.aura-prose li {
+  margin: 0.3em 0;
+}
+
+.aura-prose li::marker {
+  color: oklch(0.72 0.16 162);
+}
+
+.aura-prose a {
+  color: oklch(0.7 0.15 162);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
+
+.aura-prose strong {
+  font-weight: 650;
+  color: var(--foreground);
+}
+
+.aura-prose blockquote {
+  border-left: 3px solid oklch(0.72 0.16 162 / 0.5);
+  padding: 0.2em 0 0.2em 1em;
+  margin: 0.9em 0;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+.aura-prose code:not(pre code) {
+  background: oklch(0.72 0.16 162 / 0.12);
+  color: var(--foreground);
+  padding: 0.15em 0.4em;
+  border-radius: 0.35em;
+  font-size: 0.86em;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.aura-prose pre {
+  margin: 0.9em 0;
+  border-radius: 0.7em;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.aura-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.9em 0;
+  font-size: 0.9em;
+}
+
+.aura-prose th,
+.aura-prose td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+.aura-prose th {
+  background: var(--muted);
+  font-weight: 600;
+}
+
+.aura-prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.4em 0;
+}
