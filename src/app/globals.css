@@ -69,6 +69,8 @@
   /* AURA signature — emerald → teal → gold glow */
   --aura: oklch(0.6 0.14 165);
   --aura-soft: oklch(0.85 0.06 160);
+  --aura-2: oklch(0.62 0.11 200);
+  --aura-3: oklch(0.75 0.15 80);
   --chart-1: oklch(0.6 0.14 165);
   --chart-2: oklch(0.62 0.11 200);
   --chart-3: oklch(0.75 0.15 80);
@@ -106,6 +108,8 @@
   --ring: oklch(0.68 0.15 162);
   --aura: oklch(0.72 0.16 162);
   --aura-soft: oklch(0.4 0.07 165);
+  --aura-2: oklch(0.7 0.12 200);
+  --aura-3: oklch(0.78 0.15 80);
   --chart-1: oklch(0.68 0.15 162);
   --chart-2: oklch(0.7 0.12 200);
   --chart-3: oklch(0.78 0.15 80);
@@ -119,6 +123,48 @@
   --sidebar-accent-foreground: oklch(0.95 0.02 165);
   --sidebar-border: oklch(1 0 0 / 9%);
   --sidebar-ring: oklch(0.68 0.15 162);
+}
+
+/* ---------- PINK THEME ----------
+   A premium plum + neon-pink variant. Activated via <html class="pink">.
+*/
+.pink {
+  --background: oklch(0.16 0.025 350);
+  --foreground: oklch(0.97 0.008 350);
+  --card: oklch(0.21 0.03 350);
+  --card-foreground: oklch(0.97 0.008 350);
+  --popover: oklch(0.21 0.03 350);
+  --popover-foreground: oklch(0.97 0.008 350);
+  --primary: oklch(0.7 0.25 350);
+  --primary-foreground: oklch(0.16 0.03 350);
+  --secondary: oklch(0.27 0.03 350);
+  --secondary-foreground: oklch(0.97 0.008 350);
+  --muted: oklch(0.25 0.025 350);
+  --muted-foreground: oklch(0.74 0.02 350);
+  --accent: oklch(0.32 0.06 350);
+  --accent-foreground: oklch(0.96 0.02 350);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.7 0.25 350);
+  /* AURA signature — neon pink → magenta → gold */
+  --aura: oklch(0.72 0.26 350);
+  --aura-soft: oklch(0.4 0.08 350);
+  --aura-2: oklch(0.68 0.22 10);
+  --aura-3: oklch(0.82 0.16 80);
+  --chart-1: oklch(0.72 0.26 350);
+  --chart-2: oklch(0.68 0.22 10);
+  --chart-3: oklch(0.82 0.16 80);
+  --chart-4: oklch(0.6 0.2 330);
+  --chart-5: oklch(0.7 0.2 25);
+  --sidebar: oklch(0.21 0.03 350);
+  --sidebar-foreground: oklch(0.97 0.008 350);
+  --sidebar-primary: oklch(0.7 0.25 350);
+  --sidebar-primary-foreground: oklch(0.16 0.03 350);
+  --sidebar-accent: oklch(0.32 0.06 350);
+  --sidebar-accent-foreground: oklch(0.96 0.02 350);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.7 0.25 350);
 }
 
 @layer base {
@@ -137,9 +183,9 @@
   .aura-gradient-text {
     background: linear-gradient(
       120deg,
-      oklch(0.72 0.16 162) 0%,
-      oklch(0.68 0.14 185) 45%,
-      oklch(0.8 0.14 70) 100%
+      var(--aura) 0%,
+      var(--aura-2) 45%,
+      var(--aura-3) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -149,19 +195,19 @@
 
   .aura-glow {
     box-shadow:
-      0 0 0 1px oklch(0.72 0.16 162 / 0.18),
-      0 8px 30px -8px oklch(0.72 0.16 162 / 0.35);
+      0 0 0 1px color-mix(in oklch, var(--aura) 18%, transparent),
+      0 8px 30px -8px color-mix(in oklch, var(--aura) 35%, transparent);
   }
 
   .aura-grid-bg {
     background-image:
       radial-gradient(
         circle at 50% 0%,
-        oklch(0.72 0.16 162 / 0.12),
+        color-mix(in oklch, var(--aura) 12%, transparent),
         transparent 55%
       ),
-      linear-gradient(to right, oklch(0.72 0.16 162 / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.72 0.16 162 / 0.05) 1px, transparent 1px);
+      linear-gradient(to right, color-mix(in oklch, var(--aura) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--aura) 5%, transparent) 1px, transparent 1px);
     background-size:
       100% 100%,
       32px 32px,
@@ -236,7 +282,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: oklch(0.72 0.16 162 / 0.3) transparent;
+  scrollbar-color: color-mix(in oklch, var(--aura) 30%, transparent) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -249,14 +295,14 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: oklch(0.72 0.16 162 / 0.28);
+  background-color: color-mix(in oklch, var(--aura) 28%, transparent);
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: oklch(0.72 0.16 162 / 0.5);
+  background-color: color-mix(in oklch, var(--aura) 50%, transparent);
   background-clip: content-box;
 }
 
@@ -320,11 +366,11 @@
 }
 
 .aura-prose li::marker {
-  color: oklch(0.72 0.16 162);
+  color: var(--aura);
 }
 
 .aura-prose a {
-  color: oklch(0.7 0.15 162);
+  color: var(--aura);
   text-decoration: underline;
   text-underline-offset: 2px;
   font-weight: 500;
@@ -336,7 +382,7 @@
 }
 
 .aura-prose blockquote {
-  border-left: 3px solid oklch(0.72 0.16 162 / 0.5);
+  border-left: 3px solid color-mix(in oklch, var(--aura) 50%, transparent);
   padding: 0.2em 0 0.2em 1em;
   margin: 0.9em 0;
   color: var(--muted-foreground);
@@ -344,7 +390,7 @@
 }
 
 .aura-prose code:not(pre code) {
-  background: oklch(0.72 0.16 162 / 0.12);
+  background: color-mix(in oklch, var(--aura) 14%, transparent);
   color: var(--foreground);
   padding: 0.15em 0.4em;
   border-radius: 0.35em;

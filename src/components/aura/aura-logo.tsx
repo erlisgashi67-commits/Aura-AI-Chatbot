@@ -10,7 +10,8 @@ interface AuraLogoProps {
 
 /**
  * AURA signature mark — a glowing concentric orb with a rotating aura ring.
- * Pure CSS/SVG, no external assets.
+ * Colors are driven by the --aura / --aura-2 / --aura-3 CSS variables so the
+ * logo adapts to the active theme (emerald dark/light, pink).
  */
 export function AuraLogo({ size = 40, className, animated = true }: AuraLogoProps) {
   return (
@@ -27,7 +28,7 @@ export function AuraLogo({ size = 40, className, animated = true }: AuraLogoProp
         )}
         style={{
           background:
-            "conic-gradient(from 0deg, oklch(0.72 0.16 162 / 0), oklch(0.72 0.16 162 / 0.9), oklch(0.78 0.14 70 / 0.7), oklch(0.68 0.14 200 / 0.9), oklch(0.72 0.16 162 / 0))",
+            "conic-gradient(from 0deg, transparent, var(--aura), var(--aura-3), var(--aura-2), transparent)",
           maskImage: "radial-gradient(transparent 60%, #000 62%, #000 70%, transparent 72%)",
           WebkitMaskImage:
             "radial-gradient(transparent 60%, #000 62%, #000 70%, transparent 72%)",
@@ -41,7 +42,7 @@ export function AuraLogo({ size = 40, className, animated = true }: AuraLogoProp
         )}
         style={{
           background:
-            "radial-gradient(circle at 35% 35%, oklch(0.8 0.16 162 / 0.9), oklch(0.62 0.14 185 / 0.5) 55%, transparent 75%)",
+            "radial-gradient(circle at 35% 35%, color-mix(in oklch, var(--aura) 90%, white), color-mix(in oklch, var(--aura-2) 50%, transparent) 55%, transparent 75%)",
         }}
       />
       {/* Core orb */}
@@ -51,9 +52,9 @@ export function AuraLogo({ size = 40, className, animated = true }: AuraLogoProp
           width: size * 0.6,
           height: size * 0.6,
           background:
-            "radial-gradient(circle at 32% 28%, oklch(0.95 0.05 160) 0%, oklch(0.72 0.16 162) 45%, oklch(0.5 0.14 180) 100%)",
+            "radial-gradient(circle at 32% 28%, color-mix(in oklch, var(--aura) 30%, white) 0%, var(--aura) 45%, var(--aura-2) 100%)",
           boxShadow:
-            "inset 0 1px 2px oklch(1 0 0 / 0.5), 0 0 12px oklch(0.72 0.16 162 / 0.6)",
+            "inset 0 1px 2px oklch(1 0 0 / 0.5), 0 0 12px color-mix(in oklch, var(--aura) 60%, transparent)",
         }}
       />
     </span>
